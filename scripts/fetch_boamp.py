@@ -8,7 +8,7 @@ DATA_FILE = BASE_DIR / "data" / "veille.json"
 
 
 def fetch_boamp():
-    url = "https://www.boamp.fr/api/records/1.0/search/?dataset=boamp&rows=3"
+    url = "https://data.economie.gouv.fr/api/records/1.0/search/?dataset=boamp&rows=5"
     response = requests.get(url, timeout=30)
     response.raise_for_status()
     return response.json().get("results", [])
