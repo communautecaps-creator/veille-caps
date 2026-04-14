@@ -1,29 +1,77 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Veille Marchés CAPS</title>
   <style>
-    body { font-family: Arial; margin: 20px; }
-    .card { border: 1px solid #ccc; padding: 15px; margin: 10px 0; }
-    .urgent { border-left: 5px solid red; }
-    .watch { border-left: 5px solid orange; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f7f7f7;
+      color: #222;
+    }
+    h1 {
+      margin-bottom: 5px;
+    }
+    .subtitle {
+      color: #555;
+      margin-bottom: 24px;
+    }
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 16px;
+      margin: 12px 0;
+      background: white;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .urgent {
+      border-left: 8px solid #d62828;
+      background: #fff5f5;
+    }
+    .watch {
+      border-left: 8px solid #f4a261;
+      background: #fffaf3;
+    }
+    .context {
+      border-left: 8px solid #2a9d8f;
+      background: #f2fffb;
+    }
+    a {
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
-
-<h1>📊 Veille Marchés CAPS</h1>
-
-<div class="card urgent">
-  <h2>France Travail – Ateliers insertion</h2>
-  <p>Date limite : 15/05/2026</p>
-  <a href="#">Voir l'appel d'offres</a>
-</div>
-
-<div class="card watch">
-  <h2>TREMPLIN – Région Normandie</h2>
-  <p>Statut : en attente de relance</p>
-</div>
-
+  <h1>📊 Veille Marchés CAPS</h1>
+  <p class="subtitle">Dernière mise à jour : 2026-04-14</p>
+  
+        <div class="card watch">
+          <h2>TREMPLIN – Région Normandie</h2>
+          <p><strong>Acheteur :</strong> Région Normandie</p>
+          <p><strong>Territoire :</strong> Normandie</p>
+          <p><strong>Thématique :</strong> formation, insertion</p>
+          <p><strong>Date limite :</strong> Non précisée</p>
+          <p><strong>Recommandation :</strong> Surveiller la relance</p>
+          <p>Marché structurant à forte probabilité de relance.</p>
+          <p><a href="https://www.marches-publics.gouv.fr" target="_blank" rel="noopener noreferrer">📂 Voir la plateforme</a></p>
+        </div>
+        
+        <div class="card urgent">
+          <h2>France Travail – Ateliers insertion</h2>
+          <p><strong>Acheteur :</strong> France Travail</p>
+          <p><strong>Territoire :</strong> Normandie</p>
+          <p><strong>Thématique :</strong> insertion, accompagnement</p>
+          <p><strong>Date limite :</strong> 2026-05-15</p>
+          <p><strong>Recommandation :</strong> Analyser si une relance ou un marché similaire est ouvert</p>
+          <p>Très aligné avec l&#x27;accompagnement de publics fragiles.</p>
+          <p><a href="https://www.marches-publics.gouv.fr" target="_blank" rel="noopener noreferrer">🔗 Voir l&#x27;appel d&#x27;offres</a> | <a href="https://www.marches-publics.gouv.fr" target="_blank" rel="noopener noreferrer">📂 Voir la plateforme</a></p>
+        </div>
+        
 </body>
 </html>
