@@ -34,6 +34,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index.html veille-marches-caps.xlsx
+          git add data/veille.json index.html veille-marches-caps.xlsx
           git diff --staged --quiet || git commit -m "Mise à jour automatique de la veille"
           git push
