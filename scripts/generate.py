@@ -2,9 +2,13 @@ import json
 from pathlib import Path
 from html import escape
 
+from openpyxl import Workbook
+
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_FILE = BASE_DIR / "data" / "veille.json"
 OUTPUT_HTML = BASE_DIR / "index.html"
+OUTPUT_XLSX = BASE_DIR / "veille-marches-caps.xlsx"
 
 
 def badge_class(priorite: str) -> str:
@@ -24,8 +28,7 @@ def render_link(url: str, label: str) -> str:
     return f'<a href="{safe_url}" target="_blank" rel="noopener noreferrer">{safe_label}</a>'
 
 
-def main() -> None:
-    data = json.loads(DATA_FILE.read_text(encoding="utf-8"))
+def generate_html(data: dict) -> None:
     updated_at = escape(data.get("updated_at", ""))
     items = data.get("items", [])
 
@@ -59,6 +62,10 @@ def main() -> None:
         """
         cards.append(card)
 
+    excel_link = ""
+    if OUTPUT_XLSX.exists():
+        excel_link = '<p><a href="veille-marches-caps.xlsx" download>📊 Télécharger le fichier Excel</a></p>'
+
     html = f"""<!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -77,6 +84,9 @@ def main() -> None:
     }}
     .subtitle {{
       color: #555;
+      margin-bottom: 10px;
+    }}
+    .download {{
       margin-bottom: 24px;
     }}
     .card {{
@@ -111,13 +121,71 @@ def main() -> None:
 <body>
   <h1>📊 Veille Marchés CAPS</h1>
   <p class="subtitle">Dernière mise à jour : {updated_at}</p>
+  <div class="download">{excel_link}</div>
   {''.join(cards)}
 </body>
 </html>
 """
 
     OUTPUT_HTML.write_text(html, encoding="utf-8")
-    print("index.html généré avec succès.")
+
+
+def generate_excel(data: dict) -> None:
+    wb = Workbook()
+    ws = wb.active
+    ws.title = "Veille"
+
+    headers = [
+        "Date détection",
+        "Statut",
+        "Priorité",
+        "Acheteur",
+        "Intitulé",
+        "Territoire",
+        "Thématique",
+        "Date limite",
+        "Lien AO",
+        "Lien plateforme",
+        "Recommandation",
+        "Mode",
+        "Commentaire",
+    ]
+    ws.append(headers)
+
+    for item in data.get("items", []):
+        ws.append([
+            item.get("date_detection", ""),
+            item.get("statut", ""),
+            item.get("priorite", ""),
+            item.get("acheteur", ""),
+            item.get("intitule", ""),
+            item.get("territoire", ""),
+            item.get("thematique", ""),
+            item.get("date_limite", ""),
+            item.get("lien_ao", ""),
+            item.get("lien_plateforme", ""),
+            item.get("recommandation", ""),
+            item.get("mode", ""),
+            item.get("commentaire", ""),
+        ])
+
+    for column_cells in ws.columns:
+        max_length = 0
+        column_letter = column_cells[0].column_letter
+        for cell in column_cells:
+            value = str(cell.value) if cell.value is not None else ""
+            if len(value) > max_length:
+                max_length = len(value)
+        ws.column_dimensions[column_letter].width = min(max_length + 2, 40)
+
+    wb.save(OUTPUT_XLSX)
+
+
+def main() -> None:
+    data = json.loads(DATA_FILE.read_text(encoding="utf-8"))
+    generate_excel(data)
+    generate_html(data)
+    print("index.html et veille-marches-caps.xlsx générés avec succès.")
 
 
 if __name__ == "__main__":
