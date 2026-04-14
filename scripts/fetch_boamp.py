@@ -29,7 +29,7 @@ def save_data(data):
 
 def main():
     records = fetch_boamp()
-    filtered = records
+    print(records[:1])s
 
     data = load_data()
 
