@@ -1,0 +1,35 @@
+{
+  "updated_at": "2026-04-14",
+  "items": [
+    {
+      "date_detection": "2026-04-14",
+      "statut": "watch",
+      "priorite": "orange",
+      "acheteur": "Région Normandie",
+      "intitule": "TREMPLIN – Région Normandie",
+      "territoire": "Normandie",
+      "thematique": "formation, insertion",
+      "date_limite": "",
+      "lien_ao": "",
+      "lien_plateforme": "https://www.marches-publics.gouv.fr",
+      "recommandation": "Surveiller la relance",
+      "mode": "veille",
+      "commentaire": "Marché structurant à forte probabilité de relance."
+    },
+    {
+      "date_detection": "2026-04-14",
+      "statut": "opportunite",
+      "priorite": "rouge",
+      "acheteur": "France Travail",
+      "intitule": "France Travail – Ateliers insertion",
+      "territoire": "Normandie",
+      "thematique": "insertion, accompagnement",
+      "date_limite": "2026-05-15",
+      "lien_ao": "https://www.marches-publics.gouv.fr",
+      "lien_plateforme": "https://www.marches-publics.gouv.fr",
+      "recommandation": "Analyser si une relance ou un marché similaire est ouvert",
+      "mode": "partenariat",
+      "commentaire": "Très aligné avec l'accompagnement de publics fragiles."
+    }
+  ]
+}
