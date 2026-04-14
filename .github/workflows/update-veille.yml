@@ -22,7 +22,10 @@ jobs:
           python-version: "3.11"
 
       - name: Install dependencies
-        run: pip install openpyxl
+        run: pip install openpyxl requests
+
+      - name: Fetch BOAMP data
+        run: python scripts/fetch_boamp.py
 
       - name: Run generator
         run: python scripts/generate.py
