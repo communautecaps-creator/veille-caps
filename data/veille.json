@@ -60,6 +60,51 @@
       "recommandation": "À analyser",
       "mode": "à définir",
       "commentaire": "Ajout automatique BOAMP"
+    },
+    {
+      "date_detection": "2026-04-15",
+      "statut": "nouveau",
+      "priorite": "orange",
+      "acheteur": "BOAMP test 1",
+      "intitule": "Annonce test BOAMP 1",
+      "territoire": "",
+      "thematique": "formation",
+      "date_limite": "",
+      "lien_ao": "",
+      "lien_plateforme": "https://www.boamp.fr",
+      "recommandation": "À analyser",
+      "mode": "à définir",
+      "commentaire": "Ajout automatique BOAMP"
+    },
+    {
+      "date_detection": "2026-04-15",
+      "statut": "nouveau",
+      "priorite": "orange",
+      "acheteur": "BOAMP test 2",
+      "intitule": "Annonce test BOAMP 2",
+      "territoire": "",
+      "thematique": "formation",
+      "date_limite": "",
+      "lien_ao": "",
+      "lien_plateforme": "https://www.boamp.fr",
+      "recommandation": "À analyser",
+      "mode": "à définir",
+      "commentaire": "Ajout automatique BOAMP"
+    },
+    {
+      "date_detection": "2026-04-15",
+      "statut": "nouveau",
+      "priorite": "orange",
+      "acheteur": "BOAMP test 3",
+      "intitule": "Annonce test BOAMP 3",
+      "territoire": "",
+      "thematique": "formation",
+      "date_limite": "",
+      "lien_ao": "",
+      "lien_plateforme": "https://www.boamp.fr",
+      "recommandation": "À analyser",
+      "mode": "à définir",
+      "commentaire": "Ajout automatique BOAMP"
     }
   ]
 }
