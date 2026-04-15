@@ -215,14 +215,9 @@ def normalize_record(raw):
 
 
 def fetch_boamp():
-    from datetime import datetime, timedelta
-
-    # Date minimum = aujourd'hui - 30 jours
-    date_min = (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d")
-
     params = {
         "limit": LIMIT,
-        "where": f"dateparution >= '{date_min}'"
+        "sort": "dateparution desc"
     }
 
     response = requests.get(BOAMP_URL, params=params, timeout=30)
